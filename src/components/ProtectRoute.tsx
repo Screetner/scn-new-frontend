@@ -1,13 +1,14 @@
 import React from "react";
-import {Outlet, Navigate} from "react-router-dom";
+import {Navigate, Outlet} from "react-router-dom";
 import {ProtectRouteProp} from "../types/components/protectRoute.type.ts";
+import {useAuth} from "../context/AuthContext.tsx";
 
 const ProtectRoute : React.FC<ProtectRouteProp> = () => {
-    const isAllowed = true;
+    const {User} = useAuth()
 
     return (
         <>
-            {isAllowed ? <Outlet/> : <Navigate to={"auth/sign-in"}/>}
+            {User?.isActiveUser ? <Outlet/> : <Navigate to={"auth/sign-in"}/>}
         </>
     )
 }

@@ -4,10 +4,12 @@ import { RiExpandLeftLine } from "react-icons/ri";
 import { RiExpandRightLine } from "react-icons/ri";
 import logo from "/logo.jpg";
 import { CiLogout } from "react-icons/ci";
+import {useLogout} from "hooks/auth/useLogout.tsx";
 
 
 export function Sidebar({children} : PropsWithChildren){
    const [expanded, setExpanded] = useState<boolean>(true);
+   const {logout} = useLogout();
 
     return (
         <>
@@ -49,7 +51,7 @@ export function Sidebar({children} : PropsWithChildren){
                                 <span className="text-xs text-gray-600">Developer</span>
                             </div>
                             <div className="hover:cursor-pointer">
-                                <CiLogout className="w-6 h-6"/>
+                                <CiLogout className="w-6 h-6" onClick={logout}/>
                             </div>
                         </div>
                     </div>
