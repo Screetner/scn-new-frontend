@@ -21,8 +21,8 @@ export function useSignIn() {
         e.preventDefault();
         try{
             const data = await AuthRepository.signIn(formData)
-            Cookies.set('token', data.token);
-            Cookies.set('username', data.user.username);
+            Cookies.set('token', data.token, { expires: 1 });
+            Cookies.set('username', data.user.username, { expires: 1 });
 
             setUser({
                 token: data.token,

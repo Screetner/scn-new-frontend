@@ -11,7 +11,7 @@ const SideBarLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
                     <SidebarItem key={r.label} label={r.label} icon={r.icon} path={r.path} />
                 ))}
             </Sidebar>
-            <div className="w-full">
+            <div className="w-full p-2">
                 {children}
             </div>
         </div>

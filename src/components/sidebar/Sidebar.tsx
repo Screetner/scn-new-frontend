@@ -4,12 +4,16 @@ import { RiExpandLeftLine } from "react-icons/ri";
 import { RiExpandRightLine } from "react-icons/ri";
 import logo from "/logo.jpg";
 import { CiLogout } from "react-icons/ci";
+import {IconContext} from "react-icons";
 import {useLogout} from "hooks/auth/useLogout.tsx";
+import {useAuth} from "context/AuthContext.tsx";
 
 
 export function Sidebar({children} : PropsWithChildren){
    const [expanded, setExpanded] = useState<boolean>(true);
    const {logout} = useLogout();
+
+   const {User} = useAuth()
 
     return (
         <>
@@ -41,19 +45,23 @@ export function Sidebar({children} : PropsWithChildren){
                             width={40}
                             height={40}
                         />
-                        <div
-                            className={`flex justify-between items-center overflow-hidden transition-all ${
-                                expanded ? "w-52 ml-3" : "w-0"
-                            } `}
-                        >
-                            <div className="leading-4">
-                                <h4 className="font-semibold">AuJung</h4>
-                                <span className="text-xs text-gray-600">Developer</span>
-                            </div>
-                            <div className="hover:cursor-pointer">
-                                <CiLogout className="w-6 h-6" onClick={logout}/>
-                            </div>
-                        </div>
+                        {
+                            expanded && (
+                                <div
+                                    className={`flex justify-between items-center overflow-hidden transition-all w-52 ml-3`}
+                                >
+                                    <div className="leading-4">
+                                        <h4 className="font-semibold">{User?.username}</h4>
+                                        <span className="text-xs text-gray-600">Need to fill something here</span>
+                                    </div>
+                                    <div className="hover:cursor-pointer">
+                                        <IconContext.Provider value={{className: "w-6 h-6 text-red", color: "red"}}>
+                                            <CiLogout onClick={logout}/>
+                                        </IconContext.Provider>
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
                 </nav>
             </aside>
