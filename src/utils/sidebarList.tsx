@@ -12,7 +12,7 @@ export const sidebarList : TSideBarList[] = [
         icon: <IoHomeOutline/>
     },
     {
-        label: "GeolocationPage Settings",
+        label: "Geolocation",
         path: "/geolocation",
         icon: <BiCurrentLocation/>
     }

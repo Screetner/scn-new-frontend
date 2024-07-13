@@ -4,11 +4,14 @@ import './index.css'
 import {RouterProvider} from "react-router-dom"
 import router from "./libs/router.tsx"
 import {AuthProvider} from "./context/AuthContext.tsx";
+import { Toaster } from "@/components/ui/sonner"
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
       <AuthProvider>
           <RouterProvider router={router}/>
+          <Toaster/>
       </AuthProvider>
   </React.StrictMode>,
 )
