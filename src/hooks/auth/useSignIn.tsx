@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from "react";
-import {TSignIn} from "types/repository/auth.type.ts";
-import {AuthRepository} from "../../repositories/auth.ts";
-import {useAuth} from "context/AuthContext.tsx";
+import {TSignIn} from "@/types/repository/auth.type.ts";
+import {AuthRepository} from "@/repositories/auth.ts";
+import {useAuth} from "@/context/AuthContext.tsx";
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
 

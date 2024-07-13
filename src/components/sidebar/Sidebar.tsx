@@ -5,8 +5,8 @@ import { RiExpandRightLine } from "react-icons/ri";
 import logo from "/logo.jpg";
 import { CiLogout } from "react-icons/ci";
 import {IconContext} from "react-icons";
-import {useLogout} from "hooks/auth/useLogout.tsx";
-import {useAuth} from "context/AuthContext.tsx";
+import {useLogout} from "@/hooks/auth/useLogout.tsx";
+import {useAuth} from "@/context/AuthContext.tsx";
 
 
 export function Sidebar({children} : PropsWithChildren){

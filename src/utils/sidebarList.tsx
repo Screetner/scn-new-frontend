@@ -1,6 +1,7 @@
 import {TSideBarList} from "../types/utils/sideBarList.type.ts";
 import { IoHomeOutline } from "react-icons/io5";
-import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { BiCurrentLocation } from "react-icons/bi";
+
 
 
 
@@ -11,8 +12,8 @@ export const sidebarList : TSideBarList[] = [
         icon: <IoHomeOutline/>
     },
     {
-        label: "Dashboard",
-        path: "/dashboard",
-        icon: <MdOutlineDashboardCustomize/>
+        label: "GeolocationPage Settings",
+        path: "/geolocation",
+        icon: <BiCurrentLocation/>
     }
 ]
