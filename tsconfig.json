@@ -19,16 +19,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "libs/*": ["libs/*"],
-      "types/*": ["types/*"],
-      "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"],
-      "utils/*": ["utils/*"],
-      "context/*": ["context/*"],
-      "pages/*": ["pages/*"],
-      "layouts/*": ["layouts/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"],
