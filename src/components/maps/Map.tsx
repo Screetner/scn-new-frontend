@@ -33,7 +33,7 @@ function CustomMap({
     const handleMapClick = useCallback((event: any) => {
         if (!isSettingMode) return;
 
-        const newLocation = {longitude: event.lngLat.lng, latitude: event.lngLat.lat};
+        const newLocation = {long: event.lngLat.lng, lat: event.lngLat.lat};
         setLocations(prevLocations => [...prevLocations, newLocation]);
     }, [isSettingMode]);
 
@@ -41,7 +41,7 @@ function CustomMap({
         type: 'Feature',
         geometry: {
             type: 'Polygon',
-            coordinates: [locations.length > 2 ? [...locations.map(loc => [loc.longitude, loc.latitude]), [locations[0].longitude, locations[0].latitude]] : []]
+            coordinates: [locations.length > 2 ? [...locations.map(loc => [loc.long, loc.lat]), [locations[0].long, locations[0].lat]] : []]
         }
     };
 
@@ -75,8 +75,8 @@ function CustomMap({
             {isSettingMode && locations.map((location, index) => (
                 <Marker
                     key={index}
-                    longitude={location.longitude}
-                    latitude={location.latitude}
+                    longitude={location.long}
+                    latitude={location.lat}
                 >
                     <div
                         style={{
@@ -119,8 +119,8 @@ function CustomMap({
             {!isSettingMode && popupData && popupData.map((data, index) => (
                 <Marker
                     key={`popup-${index}`}
-                    longitude={data.location.longitude}
-                    latitude={data.location.latitude}
+                    longitude={data.location.long}
+                    latitude={data.location.lat}
                     onClick={() => {
                         setSelectedPopup(data);
                     }}
@@ -134,8 +134,8 @@ function CustomMap({
 
             {selectedPopup && (
                 <Popup
-                    longitude={selectedPopup.location.longitude}
-                    latitude={selectedPopup.location.latitude}
+                    longitude={selectedPopup.location.long}
+                    latitude={selectedPopup.location.lat}
                     onClose={() => setSelectedPopup(null)}
                     closeOnClick={false}
                 >

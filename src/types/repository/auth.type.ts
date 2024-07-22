@@ -3,12 +3,15 @@ export type TSignIn = {
     password: string
 }
 
-type user = {
+type TUser = {
     username : string
+    roleId : number
+    roleName : string
+    email : string
+    organization_name : string
 }
 
 export type TSignInResponse = {
-    message: string
-    token: string
-    user: user
+    token : string,
+    user : TUser
 }

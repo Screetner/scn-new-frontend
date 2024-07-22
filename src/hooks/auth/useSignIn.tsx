@@ -4,6 +4,7 @@ import {AuthRepository} from "@/repositories/auth.ts";
 import {useAuth} from "@/context/AuthContext.tsx";
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
+import {setAuthorizationToken} from "@/libs/axios.ts";
 
 export function useSignIn() {
     const {setUser} = useAuth();
@@ -21,12 +22,14 @@ export function useSignIn() {
         e.preventDefault();
         try{
             const data = await AuthRepository.signIn(formData)
-            Cookies.set('token', data.token, { expires: 1 });
-            Cookies.set('username', data.user.username, { expires: 1 });
+            Cookies.set("token", data.token, { expires: 1 });
+            Cookies.set("user", JSON.stringify(data.user), { expires: 1 });
+            setAuthorizationToken(data.token);
 
             setUser({
                 token: data.token,
                 username: data.user.username,
+                organization_name: data.user.organization_name,
                 isActiveUser: true
             })
             navigate("/")

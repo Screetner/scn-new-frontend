@@ -1,8 +1,8 @@
 import React from "react";
 
 export interface Location {
-    longitude: number;
-    latitude: number;
+    long: number;
+    lat: number;
 }
 
 export interface PopupData {
