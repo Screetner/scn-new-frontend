@@ -9,19 +9,14 @@ import {Location} from "@/types/components/customMap.type.ts";
 
 const GeolocationPage: React.FC = () => {
     const {UpsertGeometry} = useGeometry()
-    const [savedGeometry, setSavedGeometry] = useState<Location[]>([
-        {longitude: 100.5, latitude: 13.75},
-        {longitude: 100.6, latitude: 13.8},
-        {longitude: 100.55, latitude: 13.7},
-    ]);
+    const [savedGeometry, setSavedGeometry] = useState<Location[]>([]);
 
     const handleGeometryChange = (newGeometry: Location[]) => {
         setSavedGeometry(newGeometry);
     };
 
     const handleSaveGeometry = async () => {
-        console.log("Saving geometry:", savedGeometry);
-        await UpsertGeometry()
+        await UpsertGeometry(savedGeometry)
     };
 
     return (

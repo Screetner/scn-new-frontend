@@ -8,19 +8,21 @@ export const AuthProvider = ({children} : PropsWithChildren) => {
     const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
     useEffect(() => {
-        const token = Cookies.get('token');
-        const username = Cookies.get('username');
+        const userNotParse = Cookies.get('user')
 
-        if (token && username) {
+        if (userNotParse) {
+            const user = JSON.parse(userNotParse)
             setUserInfo({
-                username,
-                token,
+                username: user.username,
+                token: user.token,
+                organization_name: user.organization_name,
                 isActiveUser: true
             });
         } else {
             setUserInfo({
-                username: "",
-                token: "",
+                username: '',
+                token: '',
+                organization_name: '',
                 isActiveUser: false
             });
         }

@@ -2,6 +2,7 @@ import React from "react";
 
 export type UserInfo = {
     username? : string
+    organization_name : string
     token? : string
     isActiveUser? : boolean
 }

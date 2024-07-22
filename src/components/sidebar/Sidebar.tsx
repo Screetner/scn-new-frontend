@@ -52,7 +52,7 @@ export function Sidebar({children} : PropsWithChildren){
                                 >
                                     <div className="leading-4">
                                         <h4 className="font-semibold">{User?.username}</h4>
-                                        <span className="text-xs text-gray-600">Need to fill something here</span>
+                                        <span className="text-xs text-gray-600">{User?.organization_name}</span>
                                     </div>
                                     <div className="hover:cursor-pointer">
                                         <IconContext.Provider value={{className: "w-6 h-6 text-red", color: "red"}}>
